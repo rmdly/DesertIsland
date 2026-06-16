@@ -11,6 +11,7 @@ class Program
         MeetJenkins();
         UserDetails();
         QAWithJenkins();
+        Camp();
     }
 
     static void Intro()
@@ -59,7 +60,7 @@ class Program
         Say("Jenkins", $"So tell me... where in the world did you wash in from?");
 
         Beat(500);
-        Console.Write("Where you're from: ");
+        Console.Write("> ");
         location = Console.ReadLine() ?? "";
 
         Beat(500);
@@ -91,7 +92,7 @@ class Program
             if (!asked2) Console.WriteLine("2. Are you the only person here?");
             if (!asked3) Console.WriteLine("3. How do I get off this island?");
 
-            Console.Write("Your answer: ");
+            Console.Write("> ");
             string choice = Console.ReadLine() ?? "";
 
             Beat(500);
@@ -120,6 +121,52 @@ class Program
         }
     }
 
+    static void Camp()
+    {
+        while(true)
+        {
+            Console.WriteLine();
+            Console.WriteLine("You are in the camp now. Where would you like to go?");
+            Console.WriteLine("1. The Beach");
+            Console.WriteLine("2. The Jungle");
+            Console.WriteLine("0. Rest for now");
+
+            Console.Write("> ");
+            string choice = Console.ReadLine() ?? "";
+
+            if (choice == "1")
+            {
+                Console.WriteLine("You head to the beach.");
+                Beach();
+            }
+            else if (choice == "2")
+            {
+                Console.WriteLine("You head to the jungle.");
+                Jungle();
+            }
+            else if (choice == "0")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid option.");
+            }
+        }
+    }
+
+    static void Jungle()
+    {
+        Beat();
+        Console.WriteLine("You are in the jungle now.");
+    }
+
+    static void Beach()
+    {
+        Beat();
+        Console.WriteLine("You are at the beach now.");
+    }
+
     static void Say(string speaker, string line)
     {
         Console.WriteLine($"{speaker}: \"{line}\"");
@@ -137,7 +184,7 @@ class Program
 
         .-""""-.
        /  _  _  \
-      |  [o]-[o] |
+      |-[o]-[o]--|
       |    ^     |  <--- Old Man Jenkins
       |  \___/   |
        \  ~~~   /
