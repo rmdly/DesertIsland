@@ -1,4 +1,4 @@
-# 🏝️ Desert Island
+# Desert Island
 
 My first proper look at **C#**.
 
