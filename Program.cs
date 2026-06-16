@@ -39,6 +39,8 @@ class Program
         Beat();
 
         Console.WriteLine("It's Old Man Jenkins!");
+        Beat(1000);
+
         ShowJenkins();
         Beat(1000);
 
@@ -74,7 +76,7 @@ class Program
 
         Beat(700);
         Say("Jenkins", "This? This is Bonecreek Isle, lad. The sea spits ships onto her rocks and keeps what's left.");
-        Beat(500);
+        Thread.Sleep(500);
         Say("Jenkins", "Pretty, ain't she? Pretty... and patient. Ask me what you like — I've naught but time.");
 
         Beat(700);
@@ -96,16 +98,19 @@ class Program
             if (choice == "1")
             {
                 asked1 = true;
+                Console.WriteLine();
                 Say("Jenkins", "How long? Bah... what year is it now? Long enough to name every crab on this beach. That one's Geoffrey — he owes me money.");
             }
             else if (choice == "2")
             {
                 asked2 = true;
+                Console.WriteLine();
                 Say("Jenkins", "Only one? Ha! There's others scattered about — a half-mad botanist in the hills, a fella who only talks to the tide. You'll cross paths with 'em soon enough.");
             }
             else if (choice == "3")
             {
                 asked3 = true;
+                Console.WriteLine();
                 Say("Jenkins", "Off? You don't just walk off, lad. First you stay alive — water, food, or the island has you. Then you take what she gives: wood, rope, whatever washes up. Build. And when you've cobbled together something that'll carry you... well. The tide brought you in. Reckon it can take you home.");
             }
             else
@@ -129,16 +134,18 @@ class Program
     static void ShowJenkins()
     {
         Console.WriteLine("""""
+
         .-""""-.
        /  _  _  \
       |  [o]-[o] |
-      |    ^     |
-      |  \___/   | <--- Old Man Jenkins
+      |    ^     |  <--- Old Man Jenkins
+      |  \___/   |
        \  ~~~   /
         '.___.'
          /|||\
        _/ ||| \_
       /___|||___\
+
     """"");
     }
 }
