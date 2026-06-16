@@ -2,7 +2,18 @@
 
 class Program
 {
+    static string name = "";
+    static string location = "";
+
     static void Main()
+    {
+        Intro();
+        MeetJenkins();
+        UserDetails();
+        QAWithJenkins();
+    }
+
+    static void Intro()
     {
         Console.Clear();
 
@@ -16,7 +27,10 @@ class Program
         Console.WriteLine();
         Console.WriteLine("You wash up on a deserted island.");
         Beat(1000);
+    }
 
+    static void MeetJenkins()
+    {
         Console.WriteLine("In the distance, a figure approaches you...");
         Beat(500);
 
@@ -30,9 +44,12 @@ class Program
 
         Say("Jenkins", "Well now... another soul washed ashore! The name's Jenkins. Who the hell are you?");
         Beat(500);
+    }
 
+    static void UserDetails()
+    {
         Console.Write("Enter your name: ");
-        string name = Console.ReadLine() ?? "";
+        name = Console.ReadLine() ?? "";
 
         Beat(1000);
         Say("Jenkins", $"Nice to meet you, {name}!");
@@ -41,14 +58,17 @@ class Program
 
         Beat(500);
         Console.Write("Where you're from: ");
-        string location = Console.ReadLine() ?? "";
+        location = Console.ReadLine() ?? "";
 
         Beat(500);
         Say(name, $"From {location}, still not sure how I got here.");
 
         Beat(1000);
         Say("Jenkins", $"I see... you're a long way from {location} anyways.");
+    }
 
+    static void QAWithJenkins()
+    {
         Beat(500);
         Say(name, "So, what is this place?");
 
