@@ -130,6 +130,7 @@ class Program
             Console.WriteLine("Where would you like to go?");
             Console.WriteLine("1. The Beach");
             Console.WriteLine("2. The Jungle");
+            Console.WriteLine("3. Open Inventory");
             Console.WriteLine("0. Rest for now");
 
             string choice = ReadChoice();
@@ -141,6 +142,10 @@ class Program
             else if (choice == "2")
             {
                 Jungle();
+            }
+            else if (choice == "3")
+            {
+                OpenInventory();
             }
             else if (choice == "0")
             {
@@ -166,6 +171,7 @@ class Program
             Console.WriteLine($"You are at: {currentPlayer.CurrentLocation}");
             Console.WriteLine("What do you do?");
             Console.WriteLine("1. Look around");
+            Console.WriteLine("2. Open Inventory");
             Console.WriteLine("0. Head back to camp");
 
             string choice = ReadChoice();
@@ -174,6 +180,10 @@ class Program
             {
                 Beat();
                 Console.WriteLine("Driftwood and broken debris litter the tideline. Further along, the crafter's lean-to sits quiet for now.");
+            }
+            else if (choice == "2")
+            {
+                OpenInventory();
             }
             else if (choice == "0")
             {
@@ -201,6 +211,7 @@ class Program
             Console.WriteLine($"You are at: {currentPlayer.CurrentLocation}");
             Console.WriteLine("What do you do?");
             Console.WriteLine("1. Look around");
+            Console.WriteLine("2. Open Inventory");
             Console.WriteLine("0. Head back to camp");
 
             string choice = ReadChoice();
@@ -209,6 +220,17 @@ class Program
             {
                 Beat();
                 Console.WriteLine("Fruit hangs from the canopy and coconuts lie half-buried in the undergrowth. Something rustles, deeper in.");
+                Console.WriteLine("Would you like to pick up a banana? [y/n]");
+                string bananaChoice = ReadChoice();
+                if (bananaChoice == "y")
+                {
+                    currentPlayer.Inventory.Add(new Item("Banana"));
+                    Console.WriteLine("You picked up a banana and added it to your inventory.");
+                }
+            }
+            else if (choice == "2")
+            {
+                OpenInventory();
             }
             else if (choice == "0")
             {
@@ -219,6 +241,22 @@ class Program
             else
             {
                 Console.WriteLine("Please enter a valid option.");
+            }
+        }
+    }
+
+    static void OpenInventory()
+    {
+        if (currentPlayer.Inventory.Count == 0)
+        {
+            Console.WriteLine("Your inventory is empty.");
+        }
+        else
+        {
+            Console.WriteLine("You open your inventory.");
+            foreach (var item in currentPlayer.Inventory)
+            {
+                Console.WriteLine(item.Name);
             }
         }
     }
