@@ -1,4 +1,4 @@
-# Desert Island
+# Desert Island - Very much still in progress :p
 
 My first C# project.
 
