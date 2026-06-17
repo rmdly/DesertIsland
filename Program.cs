@@ -3,7 +3,8 @@
 class Program
 {
     static string name = "";
-    static string location = "";
+    static string origin = "";
+    static string currentLocation = "Camp";
 
     static void Main()
     {
@@ -61,13 +62,13 @@ class Program
 
         Beat(500);
         Console.Write("> ");
-        location = Console.ReadLine() ?? "";
+        origin = Console.ReadLine() ?? "";
 
         Beat(500);
-        Say(name, $"From {location}, still not sure how I got here.");
+        Say(name, $"From {origin}, still not sure how I got here.");
 
         Beat(1000);
-        Say("Jenkins", $"I see... you're a long way from {location} anyways.");
+        Say("Jenkins", $"I see... you're a long way from {origin} anyways.");
     }
 
     static void QAWithJenkins()
@@ -92,8 +93,7 @@ class Program
             if (!asked2) Console.WriteLine("2. Are you the only person here?");
             if (!asked3) Console.WriteLine("3. How do I get off this island?");
 
-            Console.Write("> ");
-            string choice = Console.ReadLine() ?? "";
+            string choice = ReadChoice();
 
             Beat(500);
             if (choice == "1")
@@ -123,25 +123,25 @@ class Program
 
     static void Camp()
     {
-        while(true)
+        while (true)
         {
+            currentLocation = "Camp";
+
             Console.WriteLine();
-            Console.WriteLine("You are in the camp now. Where would you like to go?");
+            Console.WriteLine($"You are at: {currentLocation}");
+            Console.WriteLine("Where would you like to go?");
             Console.WriteLine("1. The Beach");
             Console.WriteLine("2. The Jungle");
             Console.WriteLine("0. Rest for now");
 
-            Console.Write("> ");
-            string choice = Console.ReadLine() ?? "";
+            string choice = ReadChoice();
 
             if (choice == "1")
             {
-                Console.WriteLine("You head to the beach.");
                 Beach();
             }
             else if (choice == "2")
             {
-                Console.WriteLine("You head to the jungle.");
                 Jungle();
             }
             else if (choice == "0")
@@ -155,16 +155,80 @@ class Program
         }
     }
 
-    static void Jungle()
-    {
-        Beat();
-        Console.WriteLine("You are in the jungle now.");
-    }
-
     static void Beach()
     {
+        currentLocation = "The Beach";
+
         Beat();
-        Console.WriteLine("You are at the beach now.");
+        Console.WriteLine("You pick your way down to the beach. Waves hiss over the sand and tangled debris.");
+
+        while (true)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"You are at: {currentLocation}");
+            Console.WriteLine("What do you do?");
+            Console.WriteLine("1. Look around");
+            Console.WriteLine("0. Head back to camp");
+
+            string choice = ReadChoice();
+
+            if (choice == "1")
+            {
+                Beat();
+                Console.WriteLine("Driftwood and broken debris litter the tideline. Further along, the crafter's lean-to sits quiet for now.");
+            }
+            else if (choice == "0")
+            {
+                Beat();
+                Console.WriteLine("You head back to camp.");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid option.");
+            }
+        }
+    }
+
+    static void Jungle()
+    {
+        currentLocation = "The Jungle";
+
+        Beat();
+        Console.WriteLine("You push into the jungle. The air is thick and green, alive with unseen things.");
+
+        while (true)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"You are at: {currentLocation}");
+            Console.WriteLine("What do you do?");
+            Console.WriteLine("1. Look around");
+            Console.WriteLine("0. Head back to camp");
+
+            string choice = ReadChoice();
+
+            if (choice == "1")
+            {
+                Beat();
+                Console.WriteLine("Fruit hangs from the canopy and coconuts lie half-buried in the undergrowth. Something rustles, deeper in.");
+            }
+            else if (choice == "0")
+            {
+                Beat();
+                Console.WriteLine("You head back to camp.");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid option.");
+            }
+        }
+    }
+
+    static string ReadChoice()
+    {
+        Console.Write("> ");
+        return (Console.ReadLine() ?? "").Trim();
     }
 
     static void Say(string speaker, string line)
