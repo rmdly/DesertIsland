@@ -26,12 +26,20 @@
 
     static void MeetJenkins()
     {
-        Type("You wash up on a deserted island.");
         Beat(1000);
+        Type("You wash up on a deserted island.");
 
+        Beat(1000);
+        Type("The sun is shining, but you can't see much - just some trees to your left, and a beach to your right.");
+
+        Beat(1000);
+        Type("You have nothing, just the clothes you're wearing.");
+
+        Beat(2500);
+        Console.WriteLine();
         Type("In the distance, a figure approaches you...");
-        Beat(500);
 
+        Beat(500);
         Continue();
         Beat(500);
 
@@ -123,6 +131,13 @@
                 Beat(1000);
             }
         }
+
+        Continue();
+        Console.Clear();
+
+        Say("Jenkins", "Right, I'll let you be a while, lad. You can sit here and bore yourself into the grave, or get up and see what she's hiding.");
+        Say("Jenkins", "Have a wander. There's food to be found, wood and rope and whatnot to build with — and you'll want something to keep yourself in one piece. She gives, if you look.");
+        Say("Jenkins", "And mind yourself in that jungle, lad. There's beasts in the deep green — quiet for now, but the longer you linger on her, the hungrier they get. Don't go wandering in there 'til you've something sharp to your name.");
     }
 
     static void Camp()
