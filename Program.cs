@@ -2,9 +2,7 @@
 
 class Program
 {
-    static string name = "";
-    static string origin = "";
-    static string currentLocation = "Camp";
+    static Player currentPlayer = new Player();
 
     static void Main()
     {
@@ -53,28 +51,28 @@ class Program
     static void UserDetails()
     {
         Console.Write("Enter your name: ");
-        name = Console.ReadLine() ?? "";
+        currentPlayer.Name = Console.ReadLine() ?? "";
 
         Beat(1000);
-        Say("Jenkins", $"Nice to meet you, {name}!");
+        Say("Jenkins", $"Nice to meet you, {currentPlayer.Name}!");
         Thread.Sleep(500);
         Say("Jenkins", $"So tell me... where in the world did you wash in from?");
 
         Beat(500);
         Console.Write("> ");
-        origin = Console.ReadLine() ?? "";
+        currentPlayer.Origin = Console.ReadLine() ?? "";
 
         Beat(500);
-        Say(name, $"From {origin}, still not sure how I got here.");
+        Say(currentPlayer.Name, $"From {currentPlayer.Origin}, still not sure how I got here.");
 
         Beat(1000);
-        Say("Jenkins", $"I see... you're a long way from {origin} anyways.");
+        Say("Jenkins", $"I see... you're a long way from {currentPlayer.Origin} anyways.");
     }
 
     static void QAWithJenkins()
     {
         Beat(500);
-        Say(name, "So, what is this place?");
+        Say(currentPlayer.Name, "So, what is this place?");
 
         Beat(700);
         Say("Jenkins", "This? This is Bonecreek Isle, lad. The sea spits ships onto her rocks and keeps what's left.");
@@ -125,10 +123,10 @@ class Program
     {
         while (true)
         {
-            currentLocation = "Camp";
+            currentPlayer.CurrentLocation = "Camp";
 
             Console.WriteLine();
-            Console.WriteLine($"You are at: {currentLocation}");
+            Console.WriteLine($"You are at: {currentPlayer.CurrentLocation}");
             Console.WriteLine("Where would you like to go?");
             Console.WriteLine("1. The Beach");
             Console.WriteLine("2. The Jungle");
@@ -157,7 +155,7 @@ class Program
 
     static void Beach()
     {
-        currentLocation = "The Beach";
+        currentPlayer.CurrentLocation = "The Beach";
 
         Beat();
         Console.WriteLine("You pick your way down to the beach. Waves hiss over the sand and tangled debris.");
@@ -165,7 +163,7 @@ class Program
         while (true)
         {
             Console.WriteLine();
-            Console.WriteLine($"You are at: {currentLocation}");
+            Console.WriteLine($"You are at: {currentPlayer.CurrentLocation}");
             Console.WriteLine("What do you do?");
             Console.WriteLine("1. Look around");
             Console.WriteLine("0. Head back to camp");
@@ -192,7 +190,7 @@ class Program
 
     static void Jungle()
     {
-        currentLocation = "The Jungle";
+        currentPlayer.CurrentLocation = "The Jungle";
 
         Beat();
         Console.WriteLine("You push into the jungle. The air is thick and green, alive with unseen things.");
@@ -200,7 +198,7 @@ class Program
         while (true)
         {
             Console.WriteLine();
-            Console.WriteLine($"You are at: {currentLocation}");
+            Console.WriteLine($"You are at: {currentPlayer.CurrentLocation}");
             Console.WriteLine("What do you do?");
             Console.WriteLine("1. Look around");
             Console.WriteLine("0. Head back to camp");
