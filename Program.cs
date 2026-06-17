@@ -104,21 +104,21 @@
             string choice = ReadChoice();
 
             Beat(500);
-            if (choice == "1")
+            if (choice == "1" && !asked1)
             {
                 asked1 = true;
                 Console.WriteLine();
                 Say("Jenkins", "How long? ... what year is it now? Long enough to name every crab on this beach. That one's Geoffrey — he owes me money.");
                 Beat(1000);
             }
-            else if (choice == "2")
+            else if (choice == "2" && !asked2)
             {
                 asked2 = true;
                 Console.WriteLine();
                 Say("Jenkins", "Only one? Ha! There's others scattered about. You'll cross paths with 'em soon enough.");
                 Beat(1000);
             }
-            else if (choice == "3")
+            else if (choice == "3" && !asked3)
             {
                 asked3 = true;
                 Console.WriteLine();
@@ -127,7 +127,7 @@
             }
             else
             {
-                Say("Jenkins", "Eh? Didn't catch that — give me a 1, 2, or 3.");
+                Say("Jenkins", "Eh? Didn't catch that — ask a valid question, lad.");
                 Beat(1000);
             }
         }
